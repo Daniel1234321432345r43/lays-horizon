@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lays Horizon</title>
+    <style>
+      :root {
+        --hud-font: 'Segoe UI', 'Trebuchet MS', system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #87b7e0;
+        font-family: var(--hud-font);
+        color: #f2f6f8;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      #bg {
+        position: fixed;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+        outline: none;
+        cursor: crosshair;
+      }
+
+      #hud {
+        position: fixed;
+        inset: 0;
+        /* La capa del HUD es transparente al puntero; cada panel (estilos en
+           ui/HUD.js) reactiva pointer-events para no excavar a través de él. */
+        pointer-events: none;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="bg"></canvas>
+    <div id="hud"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
